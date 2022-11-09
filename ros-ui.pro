@@ -21,7 +21,7 @@ HEADERS += \
         src/*.hpp \
         src/*.h
 
-RESOURCES += qml.qrc
+RESOURCES += src/qml.qrc
 
 QML_IMPORT_NAME = Ros.Communication
 QML_IMPORT_MAJOR_VERSION = 1

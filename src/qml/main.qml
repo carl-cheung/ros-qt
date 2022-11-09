@@ -16,6 +16,7 @@ Window {
 	title: qsTr("ROS UI")
 	Material.theme: Material.Dark
 	Material.accent: Material.Cyan
+	Component.onCompleted: ROS
 	Flickable{
 		id:flickable
 		anchors { top: parent.top; left: parent.left; right: parent.right; bottom: inputPanel.top }

@@ -1,3 +1,29 @@
+/********************************************* subscriber.hpp *********************************************
+Overview:
+	Definitions of all QObject types to be registered as a qml component.
+	All objects will be passed with 3 major Q_Properties
+
+QObject Properties:
+	topic: The topic you want to subscribe to. Passed as a string
+	value: The value from the topic this is subscribed to.
+	active: If no signal/value has been published from topic after 2 seconds, then active will be false
+
+Value Types:
+	StringSub: std_msg/String -> string
+	BoolSub:   std_msg/Bool   -> bool
+	FloatSub:  std_msg/Float  -> float
+	Int16Sub:  std_msg/Int16  -> int16
+
+Description:
+	First the object is needs to be passed to QML using qmlregistertype. The object will then be exposed
+	to qml. When using in qml you set the topic as a a string "my/topic" it will then subscribe to that 
+	topic to the ROS network.
+	The value will then be be equal to whatever is published in that topic. In qml, the value can be read
+	and as a the signal valueChanged() is emitted. You can either have a control directly equal value or 
+	use the onValueChanged() signal.
+	The active signal is useful for checking if the topic is actually publishing values.
+**********************************************************************************************************/
+
 #include <QtQml/qqml.h>
 #include <QTimer>
 #include <ros/ros.h>

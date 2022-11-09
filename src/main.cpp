@@ -28,7 +28,9 @@ int main(int argc, char *argv[])
 	qmlRegisterType<Int16Sub>("Ros.Communication", 1, 0, "Int16Sub");
 	qmlRegisterType<BoolSub>("Ros.Communication", 1, 0, "BoolSub");
 
-	const QUrl url(QStringLiteral("qrc:src/qml/main.qml"));
+	qmlRegisterSingletonType( QUrl("qrc:qml/ros.qml"), "Ros.Communication", 1, 0, "ROS" );
+
+	const QUrl url(QStringLiteral("qrc:qml/main.qml"));
 	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
 									 &app, [url](QObject *obj, const QUrl &objUrl) {
 		if (!obj && url == objUrl)
